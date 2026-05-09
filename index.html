@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Monthiralai Somdet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --soft-pink: #fce4ec;
+            --dark-pink: #f06292;
+            --text-dark: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff9fb;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header Section --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- New styles for Profile Image --- */
+        .profile-pic {
+            width: 180px; /* กำหนดขนาดความกว้าง */
+            height: 180px; /* กำหนดขนาดความสูง */
+            border-radius: 50%; /* ทำให้ออกมาเป็นวงกลม */
+            border: 5px solid rgba(255, 255, 255, 0.8); /* เพิ่มขอบสีขาวจางๆ */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* เพิ่มเงาให้รูปภาพ */
+            object-fit: cover; /* จัดการภาพให้พอดีกับกรอบวงกลม */
+            margin-bottom: 25px; /* เว้นระยะห่างด้านล่าง */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p.student-id {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-pink);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--primary-pink);
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* --- About Me --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 133, 162, 0.1);
+            border-left: 5px solid var(--primary-pink);
+        }
+
+        .rabbit-tag {
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            border: 1px solid var(--soft-pink);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: var(--soft-pink);
+        }
+
+        .skill-item h3 {
+            color: var(--dark-pink);
+            margin-bottom: 10px;
+        }
+
+        /* --- Portfolio --- */
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .project-item::before {
+            content: '🌸';
+            margin-right: 15px;
+        }
+
+        /* --- Contact --- */
+        footer {
+            background: #4a4a4a;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .contact-info a {
+            color: var(--primary-pink);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <!-- ส่วนเพิ่มรูปภาพ (Profile Image Section) -->
+            <!-- อย่าลืมตรวจสอบไฟล์ชื่อ 'มนทิราลัย สมเดช.jpg' ให้ตรงกับในโค้ดนี้นะครับ -->
+            <img src="มนทิราลัย สมเดช.jpg" alt="คุณกิ๊ฟ มนทิราลัย สมเดช" class="profile-pic">
+            
+            <h1>นางสาวมนทิราลัย สมเดช (กิ๊ฟ)</h1>
+            <p class="student-id">รหัสนักศึกษา: 6650100340</p>
+            <p class="slogan">"มุ่งมั่นพัฒนาโลจิสติกส์ ด้วยเทคโนโลยีและแนวคิดสร้างสรรค์"</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>เกี่ยวกับฉัน (About Me)</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>การศึกษา</h3>
+                    <p>กำลังศึกษาในสาขาการจัดการโลจิสติกส์และการคมนาคมขนส่ง (LTM)<br>
+                    คณะการจัดการโลจิสติกส์และคมนาคมขนส่ง<br>
+                    สถาบันการจัดการปัญญาภิวัฒน์</p>
+                </div>
+                <div class="about-card">
+                    <h3>ตัวตนและความสนใจ</h3>
+                    <p>เป็นคนสดใส อ่อนโยน และรักสัตว์ โดยเฉพาะ<span class="rabbit-tag">กระต่าย 🐰</span></p>
+                    <p>สนใจการปรับปรุงประสิทธิภาพการจัดการขนส่งเพื่อลดต้นทุน และการนำเทคโนโลยี AI มาปรับใช้ในธุรกิจ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background-color: #fff0f3;">
+        <div class="container">
+            <h2>ทักษะความสามารถ (Skills)</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Data Analysis</h3>
+                    <p>เชี่ยวชาญ Microsoft Excel (Pivot Table, Drop down list, Excel Solver / Linear Programming)</p>
+                </div>
+                <div class="skill-item">
+                    <h3>AI Productivity</h3>
+                    <p>การใช้ Generative AI และการร่าง Prompt ด้วย <b>CRAFT Framework</b> เพื่อเพิ่มประสิทธิภาพงาน</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Logistics Tools</h3>
+                    <p>ความเข้าใจในหลักการซัพพลายเชนและการใช้เทคโนโลยีสมัยใหม่เพื่อลดต้นทุน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>ผลงานและโปรเจกต์ (Portfolio)</h2>
+            <ul class="project-list">
+                <li class="project-item"><b>งานวิจัย:</b> กำลังพัฒนาหัวข้อการลดต้นทุนค่าขนส่ง โดยศึกษาจากฐานข้อมูล Thai-JO</li>
+                <li class="project-item"><b>การพัฒนาแบรนด์:</b> ออกแบบ Branding และโลโก้ร้าน "ครัวน้องกิ๊ฟ"</li>
+                <li class="project-item"><b>การเรียนรู้:</b> ผ่านการอบรม Workshop เกี่ยวกับ AI Toolkit สำหรับธุรกิจ</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>ติดต่อฉัน (Contact)</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:monthiralai.somdet@gmail.com">monthiralai.somdet@gmail.com</a></p>
+                <p>โทร: 098-776-7098</p>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">© 2024 Monthiralai Somdet. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+</html>
